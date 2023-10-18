@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python3 ~/Documents/startup_minimizd.py rclone-browser "Rclone Browser"
