@@ -52,9 +52,11 @@ class Number():
         for i in range(self.digits):
             self.digit_list.append(int(str(n)[i]))
         self.sum = sum(self.digit_list)  
+    def __int__(self):
+        return self.n
 
 for i in range(1, 100000):
     num = Number(i)
     numsum = num.sum
-    if num.n == numsum**2 + 2*numsum - 2:
+    if int(num) == numsum**2 + 2*numsum - 2:
         print(f"{i} is a solution")
