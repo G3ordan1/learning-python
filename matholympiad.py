@@ -42,3 +42,19 @@ for i in sn_list:
         print(f"If s(n) = {i}, then n = {n} which gives s(n) = {sum1}, possible solution")
 
 # for s(n) < 19, n < 397 so largest is 397.
+
+# Trial and error method
+class Number():
+    def __init__(self, n):
+        self.n = n
+        self.digits = len(str(n))
+        self.digit_list = []
+        for i in range(self.digits):
+            self.digit_list.append(int(str(n)[i]))
+        self.sum = sum(self.digit_list)  
+
+for i in range(1, 100000):
+    num = Number(i)
+    numsum = num.sum
+    if num.n == numsum**2 + 2*numsum - 2:
+        print(f"{i} is a solution")
