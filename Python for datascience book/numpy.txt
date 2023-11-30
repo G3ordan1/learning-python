@@ -1,2 +1,5 @@
 np.where is like R ifelse()
 can be used to filter for specific values.
+pd.fillna() can be used to fill in nas with something. 
+df.set_index(["a", "b"]) will create a multi index df.
+df.read_excel reads excel and to_excel writes to excel.
