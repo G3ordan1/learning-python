@@ -1,0 +1,2 @@
+np.where is like R ifelse()
+can be used to filter for specific values.
