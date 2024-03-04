@@ -20,11 +20,12 @@ def coin_flip():
 
 def wake_up():
     outcomes = coin_flip()
-    day_coin = {"H" : "HM", "T" : ["TM", "TT"]}
+    day_coin = {"H": "HM", "T": ["TM", "TT"]}
     if outcomes == "H":
         return day_coin["H"]
     else:
         return day_coin["T"][random.randint(0, 1)]
+
 
 def count_day_coin():
     hms = 0
@@ -38,7 +39,7 @@ def count_day_coin():
             tms += 1
         else:
             tts += 1
-    sums = {"HM" : hms, "TM" : tms, "TT" : tts}
+    sums = {"HM": hms, "TM": tms, "TT": tts}
     return sums
 
 
@@ -49,6 +50,7 @@ def main():
     print("The probability of waking up on Monday only is: ", probability_HM)
     print("The probability of waking up on a Tails Monday is: ", probability_TM)
     print("The probability of waking up on a Tails Tuesday is: ", probability_TT)
+
 
 if __name__ == "__main__":
     main()
