@@ -1,6 +1,7 @@
 """
 The quesion is:
     A coin is flipped and the outcome determines if sleeping beauty is woken up on monday only or on monday and tuesday.
+    If it comes heads, she is woken up on monday only. If it comes tails, she is woken up on both days.
     Sleeping Beauty goes to sleep and is woken up. When she wakes up, she is asked what is the probability that
     the outcome of the coin flip was heads. However, she has no indication of what day it is and forgets that she
     was woken up previously. What do you think is the probability that the outcome of the coin flip was heads?
@@ -45,12 +46,26 @@ def count_day_coin():
 
 def main():
     probability_HM = count_day_coin()["HM"] / 100000
-    probability_TM = count_day_coin()["TM"] / 100000
-    probability_TT = count_day_coin()["TT"] / 100000
-    print("The probability of waking up on Monday only is: ", probability_HM)
-    print("The probability of waking up on a Tails Monday is: ", probability_TM)
-    print("The probability of waking up on a Tails Tuesday is: ", probability_TT)
+    print("The probability of heads is: ", probability_HM)
+    print("*" * 50)
+    print("OR the thirder argument")
+    thirder()
 
+# Thirder argument simulation
+
+def thirder():
+    HM_total = 0
+    TM_total = 0
+    TT_total = 0
+    for i in range(100000):
+        outcome = random.choice(["H", "T"])
+        if outcome == "H":
+            HM_total += 1
+        else:
+            TT_total += 1
+            TM_total += 1
+        if i in [100, 1000, 10000, 100000]:
+            print(f"The probability of heads at iteration {i} is: ", HM_total / (HM_total + TM_total + TT_total))
 
 if __name__ == "__main__":
     main()
