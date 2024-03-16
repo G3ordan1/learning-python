@@ -45,6 +45,8 @@ print(result.params)
 predictions = list(map(round, result.predict()))
 sum(prediction_sk != predictions)  # Ok so they indeed do give the same predictions
 
+X = df_dummies.drop(columns=['Use_1', 'Use_0', 'Desire_0', 'Total', "Education_0"])
+X = sm.add_constant(X)
 X_desire = np.array([X['const'], X['Desire_1']]).T
 logit_Desire = LogisticRegression(solver="newton-cg", penalty=None, fit_intercept=False, max_iter=100)
 logit_model = logit_Desire.fit(X_desire, y.values)
